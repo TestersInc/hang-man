@@ -13,6 +13,7 @@ public class Hangman {
 
         //Prompting for guesses
         Prompter prompter = new Prompter(game);
+        prompter.displayProgress(); //display current progress
         boolean isHit = prompter.promptForGuess();
 
         if (isHit) {
@@ -20,5 +21,7 @@ public class Hangman {
         } else {
             System.out.println("That was a miss :(");
         }
+
+        prompter.displayProgress(); //display current progress
     }
 }

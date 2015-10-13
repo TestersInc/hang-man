@@ -20,4 +20,8 @@ public class Prompter {
 
         return mGame.applyGuess(guessLetter);
     }
+
+    public void displayProgress() {
+        System.out.printf("Try to solve %s \n", mGame.getCurrentProgress());
+    }
 }
