@@ -4,6 +4,8 @@ package au.com.testers;
  * Created by ravi on 13/10/2015.
  */
 public class Game {
+    public static final int MAX_MISSES = 7;
+
     private String mAnswer;
     private String mHits;
     private String mMisses;
@@ -24,6 +26,7 @@ public class Game {
         return isHit;
     }
 
+    //step-5 display current progress
     public String getCurrentProgress() {
         String progress = "";
 
@@ -35,5 +38,10 @@ public class Game {
             progress += display;
         }
         return progress;
+    }
+
+    //step-6 remaining tries
+    public int getRemainingTries() {
+        return MAX_MISSES - mMisses.length();
     }
 }
