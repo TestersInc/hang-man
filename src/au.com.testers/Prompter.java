@@ -22,11 +22,28 @@ public class Prompter {
 
     public boolean promptForGuess() {
         Console console = System.console();
-        String guessAsString = console.readLine("Enter a letter:  ");
+//        String guessAsString = console.readLine("Enter a letter:  ");
 
-        char guessLetter = guessAsString.charAt(0);
+        //validate
+        boolean isHit = false;
+        boolean isValidGuess = false;
 
-        return mGame.applyGuess(guessLetter);
+        while (!isValidGuess) {
+            String guessAsString = console.readLine("Enter a letter:  ");
+            char guessLetter = guessAsString.charAt(0);
+
+            try {
+                isHit = mGame.applyGuess(guessLetter);
+                isValidGuess = true;
+            } catch (IllegalArgumentException iae) {
+                console.printf("%s. Please try again \n", iae.getMessage());
+            }
+        }
+
+//        char guessLetter = guessAsString.charAt(0);
+
+//        return mGame.applyGuess(guessLetter);
+        return isHit;
     }
 
     //step-6

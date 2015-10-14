@@ -17,6 +17,7 @@ public class Game {
     }
 
     public boolean applyGuess(char letter) {
+        letter = validateGuess(letter);
         boolean isHit = mAnswer.indexOf(letter) >= 0;
         if (isHit) {
             mHits += letter;
@@ -43,5 +44,20 @@ public class Game {
     //step-6 remaining tries
     public int getRemainingTries() {
         return MAX_MISSES - mMisses.length();
+    }
+
+    //step-7 validation
+    private char validateGuess(char letter) {
+        if (!Character.isLetter(letter)) {
+            throw new IllegalArgumentException("A letter is required");
+        }
+
+        letter = Character.toLowerCase(letter);
+
+        if (mMisses.indexOf(letter) >= 0 || mHits.indexOf(letter) >= 0) {
+            throw new IllegalArgumentException(letter + " has already been guessed!");
+        }
+
+        return letter;
     }
 }
