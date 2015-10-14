@@ -5,8 +5,14 @@ public class Hangman {
         //Getting Started
 //        System.out.println("Hello World!");
 
+//        if (args.length == 0) {
+//            System.out.println("Please enter a word");
+//            System.exit(0);
+//        }
+
         //Storing Guesses
         Game game = new Game("Tester");
+//        Game game = new Game(args[0]);
 
 //        System.out.println(game.applyGuess('t'));
 //        System.out.println(game.applyGuess('x'));

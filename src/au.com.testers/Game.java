@@ -16,6 +16,10 @@ public class Game {
         this.mMisses = "";
     }
 
+    public String getAnswer() {
+        return this.mAnswer;
+    }
+
     public boolean applyGuess(char letter) {
         letter = validateGuess(letter);
         boolean isHit = mAnswer.indexOf(letter) >= 0;
@@ -69,5 +73,9 @@ public class Game {
         }
 
         return letter;
+    }
+
+    public boolean isSolved() {
+        return getCurrentProgress().indexOf('-') == -1;
     }
 }
