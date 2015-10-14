@@ -30,10 +30,11 @@ public class Prompter {
 
         while (!isValidGuess) {
             String guessAsString = console.readLine("Enter a letter:  ");
-            char guessLetter = guessAsString.charAt(0);
+//            char guessLetter = guessAsString.charAt(0);
 
             try {
-                isHit = mGame.applyGuess(guessLetter);
+//                isHit = mGame.applyGuess(guessLetter);
+                isHit = mGame.applyGuess(guessAsString);
                 isValidGuess = true;
             } catch (IllegalArgumentException iae) {
                 console.printf("%s. Please try again \n", iae.getMessage());

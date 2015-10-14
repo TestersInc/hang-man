@@ -27,6 +27,16 @@ public class Game {
         return isHit;
     }
 
+    //refactor
+    public boolean applyGuess(String letters) {
+        if (letters.length() == 0) {
+            throw  new IllegalArgumentException("No letter found");
+        }
+//        char firstLetter = letters.charAt(0);
+//        return applyGuess(firstLetter);
+        return applyGuess(letters.charAt(0));
+    }
+
     //step-5 display current progress
     public String getCurrentProgress() {
         String progress = "";
